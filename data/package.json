@@ -1,0 +1,29 @@
+{
+    "name": "node-red-contrib-mmda-docker",
+    "version": "3.0.2",
+    "description": "Low-code programming for event-driven applications",
+    "license": "Unlicense",
+    "main": "node_modules/node-red/red/red.js",
+    "scripts": {
+        "start": "node $NODE_OPTIONS node_modules/node-red/red.js $FLOWS",
+        "debug": "node --inspect=0.0.0.0:9229 $NODE_OPTIONS node_modules/node-red/red.js $FLOWS",
+        "debug_brk": "node --inspect=0.0.0.0:9229 --inspect-brk $NODE_OPTIONS node_modules/node-red/red.js $FLOWS"
+    },
+    "contributors": [
+        {
+            "name": "Mateus Macedo Dos Anjos"
+        }
+    ],
+    "dependencies": {
+        "ioredis": "5.3.2",
+        "node-red": "3.0.2",
+        "node-red-contrib-kafkajs-modified-greyorange": "~0.0.7",
+        "uuid": "9.0.0"
+    },
+    "devDependencies": {
+        "node-red-debugger": "~1.1.1"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}

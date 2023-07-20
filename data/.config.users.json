@@ -1,0 +1,29 @@
+{
+    "_": {
+        "editor": {
+            "view": {
+                "view-store-zoom": true,
+                "view-store-position": true,
+                "view-show-grid": true,
+                "view-snap-grid": true,
+                "view-grid-size": "10",
+                "view-node-status": true,
+                "view-node-show-label": true,
+                "view-show-tips": true,
+                "view-show-welcome-tours": true
+            },
+            "tours": {
+                "welcome": "3.0.2"
+            }
+        },
+        "git": {
+            "user": {
+                "name": "macedodosanjosmateus",
+                "email": "macedodosanjosmateus@gmail.com"
+            },
+            "workflow": {
+                "mode": "manual"
+            }
+        }
+    }
+}
