@@ -335,7 +335,7 @@ services:
       # REDIS_USER: ''
 
   node-red-v4:
-    # image: nodered/node-red:latest
+    image: docker.io/macedodosanjosmateus/nodered-plataform-node-red-v4:latest
     build:
       context: .
       dockerfile: .setup/base/Dockerfile
@@ -353,7 +353,8 @@ services:
       - '1880:1880'
     volumes:
       - './src:/data'
-    # environment:
+    environment:
+      TZ: 'America/Sao_Paulo'
       # NODE_RED_ENABLE_PROJECTS: 'true'
       # NODE_RED_ENABLE_SAFE_MODE: 'true'
       # NODE_RED_LOG_LEVEL: 'debug'
