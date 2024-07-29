@@ -41,7 +41,7 @@ module.exports = {
      * node-red from being able to decrypt your existing credentials and they will be
      * lost.
      */
-    //credentialSecret: "a-secret-key",
+    credentialSecret: process.env.NODE_RED_CREDENTIAL_SECRET || false,
 
     /** By default, the flow JSON will be formatted over multiple lines making
      * it easier to compare changes when using version control.
@@ -114,7 +114,7 @@ module.exports = {
     /** The following property can be used to cause insecure HTTP connections to
      * be redirected to HTTPS.
      */
-    //requireHttps: true,
+    requireHttps: process.env.NODE_RED_REQUIRE_HTTPS || false,
 
     /** To password protect the node-defined HTTP endpoints (httpNodeRoot),
      * including node-red-dashboard, or the static content (httpStatic), the
@@ -167,7 +167,7 @@ module.exports = {
      * The following property can be used to specify a different root path.
      * If set to false, this is disabled.
      */
-    //httpAdminRoot: '/admin',
+    httpAdminRoot: process.env.NODE_RED_ADMIN_ROOT || false,
 
     /** The following property can be used to add a custom middleware function
      * in front of all admin http routes. For example, to set custom http
@@ -191,7 +191,7 @@ module.exports = {
      * can be used to specify a different root path. If set to false, this is
      * disabled.
      */
-    //httpNodeRoot: '/red-nodes',
+    httpNodeRoot: process.env.NODE_RED_HTTP_NODE_ROOT || '/api',
 
     /** The following property can be used to configure cross-origin resource sharing
      * in the HTTP nodes.
@@ -294,9 +294,9 @@ module.exports = {
     */
     diagnostics: {
         /** enable or disable diagnostics endpoint. Must be set to `false` to disable */
-        enabled: true,
+        enabled: process.env.NODE_RED_ENABLE_DIAGNOSTICS || false,
         /** enable or disable diagnostics display in the node-red editor. Must be set to `false` to disable */
-        ui: true,
+        ui: process.env.NODE_RED_ENABLE_DIAGNOSTICS_UI || false,
     },
     /** Configure runtimeState options
      * - enabled:  When `enabled` is `true` flows runtime can be Started/Stopped
@@ -307,9 +307,9 @@ module.exports = {
      */
     runtimeState: {
         /** enable or disable flows/state endpoint. Must be set to `false` to disable */
-        enabled: false,
+        enabled: process.env.NODE_RED_ENABLE_STATE || false,
         /** show or hide runtime stop/start options in the node-red editor. Must be set to `false` to hide */
-        ui: false,
+        ui: process.env.NODE_RED_ENABLE_STATE_UI || false,
     },
     /** Configure the logging output */
     logging: {
@@ -324,11 +324,11 @@ module.exports = {
              * trace - record very detailed logging + debug + info + warn + error + fatal errors
              * off - turn off all logging (doesn't affect metrics or audit)
              */
-            level: "info",
+            level: process.env.NODE_RED_LOG_LEVEL || 'info',
             /** Whether or not to include metric events in the log output */
-            metrics: false,
+            metrics: process.env.NODE_RED_ENABLE_METRICS || false,
             /** Whether or not to include audit events in the log output */
-            audit: false
+            audit: process.env.NODE_RED_ENABLE_AUDIT || false
         }
     },
 
@@ -362,17 +362,17 @@ module.exports = {
      * will install/load. It can use '*' as a wildcard that matches anything.
      */
     externalModules: {
-        // autoInstall: false,   /** Whether the runtime will attempt to automatically install missing modules */
-        // autoInstallRetry: 30, /** Interval, in seconds, between reinstall attempts */
-        // palette: {              /** Configuration for the Palette Manager */
-        //     allowInstall: true, /** Enable the Palette Manager in the editor */
-        //     allowUpdate: true,  /** Allow modules to be updated in the Palette Manager */
-        //     allowUpload: true,  /** Allow module tgz files to be uploaded and installed */
-        //     allowList: ['*'],
-        //     denyList: [],
-        //     allowUpdateList: ['*'],
-        //     denyUpdateList: []
-        // },
+        autoInstall: process.env.NODE_RED_ENABLE_EXTERNAL_MODULES_AUTO_INSTALL || false,   /** Whether the runtime will attempt to automatically install missing modules */
+        autoInstallRetry: 30, /** Interval, in seconds, between reinstall attempts */
+        palette: {              /** Configuration for the Palette Manager */
+            allowInstall: process.env.NODE_RED_ENABLE_EXTERNAL_MODULES_PALETTE_INSTALL || false, /** Enable the Palette Manager in the editor */
+            allowUpdate: process.env.NODE_RED_ENABLE_EXTERNAL_MODULES_PALETTE_UPDATE || false,  /** Allow modules to be updated in the Palette Manager */
+            allowUpload: process.env.NODE_RED_ENABLE_EXTERNAL_MODULES_PALETTE_UPLOAD || false,  /** Allow module tgz files to be uploaded and installed */
+            allowList: ['*'],
+            denyList: [],
+            allowUpdateList: ['*'],
+            denyUpdateList: []
+        },
         // modules: {              /** Configuration for node-specified modules */
         //     allowInstall: true,
         //     allowList: [],
@@ -420,7 +420,7 @@ module.exports = {
 
         projects: {
             /** To enable the Projects feature, set this value to true */
-            enabled: false,
+            enabled: process.env.NODE_RED_ENABLE_PROJECTS || false,
             workflow: {
                 /** Set the default projects workflow mode.
                  *  - manual - you must manually commit changes
@@ -458,13 +458,13 @@ module.exports = {
             mermaid: {
                 /** enable or disable mermaid diagram in markdown document
                  */
-                enabled: true
+                enabled: process.env.NODE_RED_ENABLE_MERMAID || true
             }
         },
 
         multiplayer: {
             /** To enable the Multiplayer feature, set this value to true */
-            enabled: false
+            enabled: process.env.NODE_RED_ENABLE_MULTIPLAYER || false,
         },
     },
 
@@ -497,7 +497,7 @@ module.exports = {
     //fileWorkingDirectory: "",
 
     /** Allow the Function node to load additional npm modules directly */
-    functionExternalModules: true,
+    functionExternalModules: process.env.NODE_RED_ENABLE_FUNCTION_EXTERNAL_MODULES || true,
 
     /** Default timeout, in seconds, for the Function node. 0 means no timeout is applied */
     functionTimeout: 0,
@@ -532,7 +532,7 @@ module.exports = {
     //debugUseColors: true,
 
     /** The maximum length, in characters, of any message sent to the debug sidebar tab */
-    debugMaxLength: 1000,
+    debugMaxLength: process.env.NODE_RED_DEBUG_MAX_LENGTH || 1000,
 
     /** The maximum length, in characters, of status messages under the debug node */
     //debugStatusLength: 32,
@@ -544,10 +544,10 @@ module.exports = {
     //httpRequestTimeout: 120000,
 
     /** Retry time in milliseconds for MQTT connections */
-    mqttReconnectTime: 15000,
+    mqttReconnectTime: process.env.NODE_RED_MQTT_RECONNECT_TIME || 15000,
 
     /** Retry time in milliseconds for Serial port connections */
-    serialReconnectTime: 15000,
+    serialReconnectTime: process.env.NODE_RED_SERIAL_RECONNECT_TIME || 15000,
 
     /** Retry time in milliseconds for TCP socket connections */
     //socketReconnectTime: 10000,
