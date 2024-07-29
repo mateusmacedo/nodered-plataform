@@ -1,7 +1,0 @@
-{
-    "projects": {
-        "nodered-plataform": {
-            "credentialSecret": "secret"
-        }
-    }
-}
