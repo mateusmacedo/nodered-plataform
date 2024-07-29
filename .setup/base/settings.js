@@ -133,11 +133,13 @@ module.exports = {
      *  - httpServerOptions
      *  - httpAdminRoot
      *  - httpAdminMiddleware
+     *  - httpAdminCookieOptions
      *  - httpNodeRoot
      *  - httpNodeCors
      *  - httpNodeMiddleware
      *  - httpStatic
      *  - httpStaticRoot
+     *  - httpStaticCors
      ******************************************************************************/
 
         /** the tcp port that the Node-RED web server is listening on */
@@ -178,10 +180,15 @@ module.exports = {
         //    next();
         // },
 
+        /** The following property can be used to set addition options on the session
+         * cookie used as part of adminAuth authentication system
+         * Available options are documented here: https://www.npmjs.com/package/express-session#cookie
+         */
+        // httpAdminCookieOptions: { },
 
         /** Some nodes, such as HTTP In, can be used to listen for incoming http requests.
          * By default, these are served relative to '/'. The following property
-         * can be used to specifiy a different root path. If set to false, this is
+         * can be used to specify a different root path. If set to false, this is
          * disabled.
          */
         httpNodeRoot: process.env.NODE_RED_HTTP_NODE_ROOT || '/api',
@@ -223,11 +230,18 @@ module.exports = {
          * to move httpAdminRoot
          */
         //httpStatic: '/home/nol/node-red-static/', //single static source
-        //httpStatic: process.env.NODE_RED_HTTP_STATIC ? path.join(__dirname, process.env.NODE_RED_HTTP_STATIC) : path.join(__dirname, 'public'),
-        /* OR multiple static sources can be created using an array of objects... */
+        /**
+         *  OR multiple static sources can be created using an array of objects...
+         *  Each object can also contain an options object for further configuration.
+         *  See https://expressjs.com/en/api.html#express.static for available options.
+         *  They can also contain an option `cors` object to set specific Cross-Origin
+         *  Resource Sharing rules for the source. `httpStaticCors` can be used to
+         *  set a default cors policy across all static routes.
+         */
         //httpStatic: [
         //    {path: '/home/nol/pics/',    root: "/img/"},
         //    {path: '/home/nol/reports/', root: "/doc/"},
+        //    {path: '/home/nol/videos/',  root: "/vid/", options: {maxAge: '1d'}}
         //],
 
         /**
@@ -239,6 +253,21 @@ module.exports = {
          *      then "/home/nol/pics/" will be served at "/static/img/"
          */
         //httpStaticRoot: '/static/',
+
+        /** The following property can be used to configure cross-origin resource sharing
+         * in the http static routes.
+         * See https://github.com/troygoode/node-cors#configuration-options for
+         * details on its contents. The following is a basic permissive set of options:
+         */
+        //httpStaticCors: {
+        //    origin: "*",
+        //    methods: "GET,PUT,POST,DELETE"
+        //},
+
+        /** The following property can be used to modify proxy options */
+        // proxyOptions: {
+        //     mode: "legacy", // legacy mode is for non-strict previous proxy determination logic (node-red < v4 compatible)
+        // },
 
     /*******************************************************************************
      * Runtime Settings
@@ -270,7 +299,7 @@ module.exports = {
             ui: process.env.NODE_RED_ENABLE_DIAGNOSTICS_UI || false,
         },
         /** Configure runtimeState options
-         * - enabled:  When `enabled` is `true` flows runtime can be Started/Stoped
+         * - enabled:  When `enabled` is `true` flows runtime can be Started/Stopped
          *   by POSTing to available at http://localhost:1880/flows/state
          * - ui: When `ui` is `true`, the action `core:start-flows` and
          *   `core:stop-flows` will be available to logged in users of node-red editor
@@ -378,7 +407,7 @@ module.exports = {
             /** To disable the 'Welcome to Node-RED' tour that is displayed the first
              * time you access the editor for each release of Node-RED, set this to false
              */
-            tours: false,
+            //tours: false,
 
             palette: {
                 /** The following property can be used to order the categories in the editor
@@ -417,13 +446,26 @@ module.exports = {
                      */
                     // theme: "vs",
                     /** other overrides can be set e.g. fontSize, fontFamily, fontLigatures etc.
-                     * for the full list, see https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.IStandaloneEditorConstructionOptions.html
+                     * for the full list, see https://microsoft.github.io/monaco-editor/docs.html#interfaces/editor.IStandaloneEditorConstructionOptions.html
                      */
                     //fontSize: 14,
                     //fontFamily: "Cascadia Code, Fira Code, Consolas, 'Courier New', monospace",
                     //fontLigatures: true,
                 }
-            }
+            },
+
+            markdownEditor: {
+                mermaid: {
+                    /** enable or disable mermaid diagram in markdown document
+                     */
+                    enabled: process.env.NODE_RED_ENABLE_MERMAID || true
+                }
+            },
+
+            multiplayer: {
+                /** To enable the Multiplayer feature, set this value to true */
+                enabled: process.env.NODE_RED_ENABLE_MULTIPLAYER || false,
+            },
         },
 
     /*******************************************************************************
@@ -431,10 +473,12 @@ module.exports = {
      *  - fileWorkingDirectory
      *  - functionGlobalContext
      *  - functionExternalModules
+     *  - functionTimeout
      *  - nodeMessageBufferMaxLength
      *  - ui (for use with Node-RED Dashboard)
      *  - debugUseColors
      *  - debugMaxLength
+     *  - debugStatusLength
      *  - execMaxBufferSize
      *  - httpRequestTimeout
      *  - mqttReconnectTime
@@ -453,7 +497,10 @@ module.exports = {
         //fileWorkingDirectory: "",
 
         /** Allow the Function node to load additional npm modules directly */
-        functionExternalModules: true,
+        functionExternalModules: process.env.NODE_RED_ENABLE_FUNCTION_EXTERNAL_MODULES || true,
+
+        /** Default timeout, in seconds, for the Function node. 0 means no timeout is applied */
+        functionTimeout: 0,
 
         /** The following property can be used to set predefined values in Global Context.
          * This allows extra node modules to be made available with in Function node.
@@ -485,7 +532,10 @@ module.exports = {
         //debugUseColors: true,
 
         /** The maximum length, in characters, of any message sent to the debug sidebar tab */
-        debugMaxLength: 1000,
+        debugMaxLength: process.env.NODE_RED_DEBUG_MAX_LENGTH || 1000,
+
+        /** The maximum length, in characters, of status messages under the debug node */
+        //debugStatusLength: 32,
 
         /** Maximum buffer size for the exec node. Defaults to 10Mb */
         //execMaxBufferSize: 10000000,
@@ -494,10 +544,10 @@ module.exports = {
         //httpRequestTimeout: 120000,
 
         /** Retry time in milliseconds for MQTT connections */
-        mqttReconnectTime: 15000,
+        mqttReconnectTime: process.env.NODE_RED_MQTT_RECONNECT_TIME || 15000,
 
         /** Retry time in milliseconds for Serial port connections */
-        serialReconnectTime: 15000,
+        serialReconnectTime: process.env.NODE_RED_SERIAL_RECONNECT_TIME || 15000,
 
         /** Retry time in milliseconds for TCP socket connections */
         //socketReconnectTime: 10000,
@@ -520,7 +570,7 @@ module.exports = {
          */
         //tlsConfigDisableLocalFiles: true,
 
-        /** The following property can be used to verify websocket connection attempts.
+        /** The following property can be used to verify WebSocket connection attempts.
          * This allows, for example, the HTTP request headers to be checked to ensure
          * they include valid authentication information.
          */
