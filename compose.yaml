@@ -336,9 +336,9 @@ services:
 
   node-red-v4:
     image: docker.io/macedodosanjosmateus/nodered-plataform-node-red-v4:latest
-    build:
-      context: .
-      dockerfile: .setup/base/Dockerfile
+    # build:
+    #   context: .
+    #   dockerfile: .setup/base/Dockerfile
     restart: unless-stopped
     container_name: node-red-v4
     hostname: node-red-v4
