@@ -1,5 +1,3 @@
-version: '3.9'
-
 networks:
     local:
         driver: bridge
@@ -336,5 +334,48 @@ services:
       # REDIS_PORT: '6379'
       # REDIS_USER: ''
 
-
-
+  node-red-v4:
+    image: nodered/node-red:latest
+    restart: unless-stopped
+    container_name: node-red-v4
+    hostname: node-red-v4
+    networks:
+      local:
+        aliases:
+          - node-red-v4
+        ipv4_address: 172.163.0.22
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    ports:
+      - '1880:1880'
+    volumes:
+      - './src:/data'
+    # environment:
+      # NODE_RED_ENABLE_PROJECTS: 'true'
+      # NODE_RED_ENABLE_SAFE_MODE: 'true'
+      # NODE_RED_LOG_LEVEL: 'debug'
+      # NODE_RED_HTTP_NODE_ROOT: '/api'
+      # NODE_RED_ENABLE_EXTERNAL_MODULES_AUTO_INSTALL: 'true'
+      # NODE_RED_ENABLE_EXTERNAL_MODULES_PALETTE_INSTALL: 'true'
+      # NODE_RED_ENABLE_EXTERNAL_MODULES_PALETTE_UPDATE: 'true'
+      # NODE_RED_ENABLE_EXTERNAL_MODULES_PALETTE_UPLOAD: 'true'
+      # NODE_RED_ENABLE_AUDIT: 'true'
+      # NODE_RED_ENABLE_METRICS: 'true'
+      # NODE_RED_ENABLE_STATE_UI: 'true'
+      # NODE_RED_ENABLE_STATE: 'true'
+      # NODE_RED_ENABLE_DIAGNOSTICS: 'true'
+      # NODE_RED_ENABLE_DIAGNOSTICS_UI: 'true'
+      # NODE_RED_CREDENTIAL_SECRET: 'secret'
+      # NODE_RED_ADMIN_ROOT: '/admin'
+      # FLOW_FILE_PRETTY: 'true'
+      # KAFKA_BROKER_LIST: 'kafka:9092'
+      # KAFKA_CLIENT_ID: 'nodered-plataform'
+      # KAFKA_GROUP_ID: 'nodered-plataform'
+      # KEY_CLOAK_CLIENT_ID: 'nodered-plataform'
+      # KEY_CLOAK_CLIENT_SECRET: 'UsyyDmjw6J7SzIhAfnN82pMkE4UbL0lb'
+      # KEY_CLOAK_URL: 'keycloak'
+      # REDIS_HOST: 'redis'
+      # REDIS_KEY_PREFIX: 'nodered-plataform:'
+      # REDIS_PASSWORD: ''
+      # REDIS_PORT: '6379'
+      # REDIS_USER: ''
