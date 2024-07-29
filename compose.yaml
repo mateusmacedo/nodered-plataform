@@ -335,7 +335,10 @@ services:
       # REDIS_USER: ''
 
   node-red-v4:
-    image: nodered/node-red:latest
+    # image: nodered/node-red:latest
+    build:
+      context: .
+      dockerfile: .setup/base/Dockerfile
     restart: unless-stopped
     container_name: node-red-v4
     hostname: node-red-v4
