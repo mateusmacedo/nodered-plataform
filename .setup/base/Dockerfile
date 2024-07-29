@@ -1,5 +1,5 @@
 ARG ARCH=amd64
-ARG NODE_VERSION=18
+ARG NODE_VERSION=20
 ARG OS=alpine
 
 #### Stage BASE ########################################################################################################
@@ -54,7 +54,7 @@ RUN apk add --no-cache --virtual buildtools build-base linux-headers udev python
     cp -R node_modules prod_node_modules
 
 #### Stage RELEASE #####################################################################################################
-FROM base AS RELEASE
+FROM base AS release
 ARG BUILD_DATE
 ARG BUILD_VERSION
 ARG BUILD_REF
