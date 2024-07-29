@@ -1,4 +1,4 @@
-FROM public.ecr.aws/m8n7w3l2/fretehub:nodered-payments-base
+FROM docker.io/macedodosanjosmateus/nodered-plataform-node-red-v4:latest
 
 USER root
 
