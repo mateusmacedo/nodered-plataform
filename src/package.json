@@ -4,9 +4,22 @@
             "name": "Mateus Macedo Dos Anjos"
         }
     ],
+    "dependencies": {
+        "node-red": "4.0.2"
+    },
     "description": "A Node-RED MMDA",
+    "engines": {
+        "node": ">=18"
+    },
     "license": "Unlicense",
+    "main": "node_modules/node-red/red/red.js",
     "name": "node-red-mmda",
     "private": false,
+    "scripts": {
+        "debug": "node --inspect=0.0.0.0:9229 $NODE_OPTIONS node_modules/node-red/red.js $FLOWS",
+        "debug_brk": "node --inspect=0.0.0.0:9229 --inspect-brk $NODE_OPTIONS node_modules/node-red/red.js $FLOWS",
+        "pm2-start": "pm2-runtime start ecosystem.config.js",
+        "start": "node $NODE_OPTIONS node_modules/node-red/red.js $FLOWS"
+    },
     "version": "0.0.1"
 }
