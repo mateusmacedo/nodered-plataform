@@ -1,0 +1,8 @@
+{
+    "projects": {
+        "nodered-plataform": {
+            "credentialSecret": false
+        }
+    },
+    "activeProject": "nodered-plataform"
+}

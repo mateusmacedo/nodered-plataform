@@ -1,4 +1,4 @@
-FROM docker.io/macedodosanjosmateus/nodered:latest
+FROM docker.io/macedodosanjosmateus/node-red:latest
 
 USER root
 

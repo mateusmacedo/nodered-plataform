@@ -8,7 +8,7 @@
  * Each entry should be separated from the entries above and below by a comma ','
  *
  * For more information about individual settings, refer to the documentation:
- *    https://nodered.org/docs/user-guide/runtime/configuration
+ *    https://node-red.org/docs/user-guide/runtime/configuration
  *
  * The settings are split into the following sections:
  *  - Flow File and User Directory Settings
@@ -71,7 +71,7 @@ module.exports = {
  ******************************************************************************/
 
     /** To password protect the Node-RED editor and admin API, the following
-     * property can be used. See https://nodered.org/docs/security.html for details.
+     * property can be used. See https://node-red.org/docs/security.html for details.
      */
     //adminAuth: {
     //    type: "credentials",
@@ -120,7 +120,7 @@ module.exports = {
      * including node-red-dashboard, or the static content (httpStatic), the
      * following properties can be used.
      * The `pass` field is a bcrypt hash of the password.
-     * See https://nodered.org/docs/security.html#generating-the-password-hash
+     * See https://node-red.org/docs/security.html#generating-the-password-hash
      */
     //httpNodeAuth: {user:"user",pass:"$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN."},
     //httpStaticAuth: {user:"user",pass:"$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN."},
@@ -335,7 +335,7 @@ module.exports = {
     /** Context Storage
      * The following property can be used to enable context storage. The configuration
      * provided here will enable file-based context that flushes to disk every 30 seconds.
-     * Refer to the documentation for further options: https://nodered.org/docs/api/context/
+     * Refer to the documentation for further options: https://node-red.org/docs/api/context/
      */
     //contextStorage: {
     //    default: {
@@ -394,7 +394,7 @@ module.exports = {
     //disableEditor: false,
 
     /** Customising the editor
-     * See https://nodered.org/docs/user-guide/runtime/configuration#editor-themes
+     * See https://node-red.org/docs/user-guide/runtime/configuration#editor-themes
      * for all available options.
      */
     editorTheme: {

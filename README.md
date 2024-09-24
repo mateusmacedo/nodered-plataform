@@ -1,4 +1,4 @@
-# NodeRED Plataform
+# node-red Plataform
 
 ## Instruções
 
@@ -19,21 +19,21 @@ Execute o comando abaixo para subir o docker-compose.
 docker compose up -d
 ```
 
-### Nodered
+### node-red
 
-Acesse o container do nodered.
+Acesse o container do node-red.
 
 ```bash
 docker exec -it node-red bash
 ```
 
-Execute o comando abaixo para instalar as dependências do nodered.
+Execute o comando abaixo para instalar as dependências do node-red.
 
 ```bash
 cd /data && npm install
 ```
 
-Para acessar o nodered acesse o endereço abaixo.
+Para acessar o node-red acesse o endereço abaixo.
 
 ```bash
 http://localhost:1880/admin

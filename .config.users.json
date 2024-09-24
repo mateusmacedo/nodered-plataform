@@ -11,6 +11,17 @@
                 "view-node-show-label": true,
                 "view-show-tips": true,
                 "view-show-welcome-tours": true
+            },
+            "tours": {
+                "welcome": "4.0.2"
+            }
+        },
+        "menu-deploymenu-item-flow": true,
+        "menu-deploymenu-item-full": false,
+        "git": {
+            "user": {
+                "name": "mateusmacedo",
+                "email": "macedodosanjosmateus@gmail.com"
             }
         }
     }

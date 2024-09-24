@@ -1,0 +1,41 @@
+networks:
+    local:
+      external: true
+      name: shared
+
+volumes:
+  node-red:
+
+services:
+  node-red:
+    image: nodered/node-red:latest
+    restart: unless-stopped
+    container_name: node-red
+    hostname: node-red
+    networks:
+      - local
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    ports:
+      - '1880:1880'
+    volumes:
+      - '..:/data'
+    environment:
+      TZ: ${TZ:-UTC}
+      FLOW_FILE_PRETTY: ${FLOW_FILE_PRETTY:-false}
+      NODE_RED_ENABLE_PROJECTS: ${NODE_RED_ENABLE_PROJECTS:-false}
+      NODE_RED_ENABLE_SAFE_MODE: ${NODE_RED_ENABLE_SAFE_MODE:-false}
+      NODE_RED_LOG_LEVEL: ${NODE_RED_LOG_LEVEL:-info}
+      NODE_RED_ADMIN_ROOT: ${NODE_RED_ADMIN_ROOT:-admin}
+      NODE_RED_HTTP_NODE_ROOT: ${NODE_RED_HTTP_NODE_ROOT:-/}
+      NODE_RED_ENABLE_EXTERNAL_MODULES_AUTO_INSTALL: ${NODE_RED_ENABLE_EXTERNAL_MODULES_AUTO_INSTALL:-false}
+      NODE_RED_ENABLE_EXTERNAL_MODULES_PALETTE_INSTALL: ${NODE_RED_ENABLE_EXTERNAL_MODULES_PALETTE_INSTALL:-false}
+      NODE_RED_ENABLE_EXTERNAL_MODULES_PALETTE_UPDATE: ${NODE_RED_ENABLE_EXTERNAL_MODULES_PALETTE_UPDATE:-false}
+      NODE_RED_ENABLE_EXTERNAL_MODULES_PALETTE_UPLOAD: ${NODE_RED_ENABLE_EXTERNAL_MODULES_PALETTE_UPLOAD:-false}
+      NODE_RED_ENABLE_AUDIT: ${NODE_RED_ENABLE_AUDIT:-false}
+      NODE_RED_ENABLE_METRICS: ${NODE_RED_ENABLE_METRICS:-false}
+      NODE_RED_ENABLE_STATE_UI: ${NODE_RED_ENABLE_STATE_UI:-false}
+      NODE_RED_ENABLE_STATE: ${NODE_RED_ENABLE_STATE:-false}
+      NODE_RED_ENABLE_DIAGNOSTICS: ${NODE_RED_ENABLE_DIAGNOSTICS:-false}
+      NODE_RED_ENABLE_DIAGNOSTICS_UI: ${NODE_RED_ENABLE_DIAGNOSTICS_UI:-false}
+      NODE_RED_CREDENTIAL_SECRET: ${NODE_RED_CREDENTIAL_SECRET:-false}
