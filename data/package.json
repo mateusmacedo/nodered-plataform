@@ -7,6 +7,7 @@
         }
     ],
     "dependencies": {
+        "@ether/node-red-contrib-base64": "file:lib/nodes/node-red-contrib-base64",
         "@ether/node-red-contrib-json-schema": "file:lib/nodes/node-red-contrib-json-schema",
         "@ether/node-red-contrib-sqlbuilder": "file:lib/nodes/node-red-contrib-sqlbuilder",
         "node-red": "^4.0.5",
