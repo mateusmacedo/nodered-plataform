@@ -435,7 +435,9 @@
         "nodes": {
             "json-schema": {
                 "name": "json-schema",
-                "types": [],
+                "types": [
+                    "json-schema"
+                ],
                 "enabled": true,
                 "local": true,
                 "user": false,
