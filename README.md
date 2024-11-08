@@ -7,8 +7,8 @@
 Permissões para os arquivos de inicialização para o docker substitua $USER pelo seu usuário.
 
 ```bash
-sudo chwon -R $USER:$USER src
-sudo chmod -R ug+rwx src
+sudo chwon -R $USER:$USER ./data
+sudo chmod -R ug+rwx ./data
 ```
 
 ### Docker Compose

@@ -4,5 +4,5 @@
             "credentialSecret": false
         }
     },
-    "activeProject": "node-red-core"
+    "activeProject": "node-red-ether"
 }

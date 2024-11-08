@@ -9,6 +9,7 @@ volumes:
 services:
   node-red:
     image: nodered/node-red:latest
+    user: '${UID:-1000}:${GID:-1000}'
     restart: unless-stopped
     container_name: node-red
     hostname: node-red

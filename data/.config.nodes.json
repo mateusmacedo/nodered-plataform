@@ -426,5 +426,24 @@
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/storage/23-watch.js"
             }
         }
+    },
+    "@ether/node-red-contrib-json-schema": {
+        "name": "@ether/node-red-contrib-json-schema",
+        "version": "1.0.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "json-schema": {
+                "name": "json-schema",
+                "types": [
+                    "json-schema"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@ether/node-red-contrib-json-schema",
+                "file": "/data/node_modules/@ether/node-red-contrib-json-schema/schema.js"
+            }
+        }
     }
 }

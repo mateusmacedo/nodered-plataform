@@ -2,7 +2,8 @@
     "projects": {
         "node-red-core": {
             "credentialSecret": false
-        }
+        },
+        "node-red-ether": {}
     },
     "activeProject": "node-red-ether"
 }

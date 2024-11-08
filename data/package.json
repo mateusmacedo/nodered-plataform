@@ -7,6 +7,7 @@
         }
     ],
     "dependencies": {
+        "@ether/node-red-contrib-json-schema": "file:lib/nodes/node-red-contrib-json-schema",
         "node-red": "~4.0.5"
     },
     "description": "A Node-RED Platform",
