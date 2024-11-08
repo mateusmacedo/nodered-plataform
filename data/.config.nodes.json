@@ -629,5 +629,172 @@
                 "file": "/data/node_modules/node-red-contrib-noop/noop/noop.js"
             }
         }
+    },
+    "node-red-contrib-prometheus-exporter": {
+        "name": "node-red-contrib-prometheus-exporter",
+        "version": "1.0.5",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "prometheus-exporter": {
+                "name": "prometheus-exporter",
+                "types": [
+                    "prometheus-exporter"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-prometheus-exporter",
+                "file": "/data/node_modules/node-red-contrib-prometheus-exporter/prometheus-exporter/prometheus-exporter.js"
+            },
+            "prometheus-metric-config": {
+                "name": "prometheus-metric-config",
+                "types": [
+                    "prometheus-metric-config"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-prometheus-exporter",
+                "file": "/data/node_modules/node-red-contrib-prometheus-exporter/prometheus-exporter/prometheus-metric-config.js"
+            }
+        }
+    },
+    "node-red-contrib-simple-aws": {
+        "name": "node-red-contrib-simple-aws",
+        "version": "0.1.6",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "Simple AWS": {
+                "name": "Simple AWS",
+                "types": [
+                    "simple-aws"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-simple-aws",
+                "file": "/data/node_modules/node-red-contrib-simple-aws/simple-aws.js"
+            },
+            "AWS Config": {
+                "name": "AWS Config",
+                "types": [
+                    "AWS Config"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-simple-aws",
+                "file": "/data/node_modules/node-red-contrib-simple-aws/simple-aws-config.js"
+            }
+        }
+    },
+    "node-red-contrib-axios": {
+        "name": "node-red-contrib-axios",
+        "version": "1.3.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "axios": {
+                "name": "axios",
+                "types": [
+                    "axios-endpoint",
+                    "axios-request"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-axios",
+                "file": "/data/node_modules/node-red-contrib-axios/src/axios.js"
+            }
+        }
+    },
+    "@tq-bit/node-red-contrib-server-sent-events": {
+        "name": "@tq-bit/node-red-contrib-server-sent-events",
+        "version": "1.2.6",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "sse-server": {
+                "name": "sse-server",
+                "types": [
+                    "sse-server"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@tq-bit/node-red-contrib-server-sent-events",
+                "file": "/data/node_modules/@tq-bit/node-red-contrib-server-sent-events/sse-server/sse-server.js"
+            },
+            "sse-client": {
+                "name": "sse-client",
+                "types": [
+                    "sse-client"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@tq-bit/node-red-contrib-server-sent-events",
+                "file": "/data/node_modules/@tq-bit/node-red-contrib-server-sent-events/sse-client/sse-client.js"
+            }
+        }
+    },
+    "node-red-contrib-throttle": {
+        "name": "node-red-contrib-throttle",
+        "version": "0.1.7",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "throttle": {
+                "name": "throttle",
+                "types": [
+                    "throttle"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-throttle",
+                "file": "/data/node_modules/node-red-contrib-throttle/throttle.js"
+            }
+        }
+    },
+    "node-red-contrib-startup-trigger": {
+        "name": "node-red-contrib-startup-trigger",
+        "version": "0.1.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "trigger": {
+                "name": "trigger",
+                "types": [
+                    "start-up-trigger"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-startup-trigger",
+                "file": "/data/node_modules/node-red-contrib-startup-trigger/trigger/trigger.js"
+            }
+        }
+    },
+    "node-red-contrib-opentelemetry": {
+        "name": "node-red-contrib-opentelemetry",
+        "version": "1.2.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "opentelemetry": {
+                "name": "opentelemetry",
+                "types": [
+                    "OpenTelemetry"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-opentelemetry",
+                "file": "/data/node_modules/node-red-contrib-opentelemetry/lib/opentelemetry-node.js"
+            }
+        }
     }
 }
