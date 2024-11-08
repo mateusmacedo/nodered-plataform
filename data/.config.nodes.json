@@ -552,5 +552,25 @@
                 "file": "/data/node_modules/@ether/node-red-contrib-base64/base64.js"
             }
         }
+    },
+    "node-red-contrib-oauth2": {
+        "name": "node-red-contrib-oauth2",
+        "version": "6.2.1",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "oauth2": {
+                "name": "oauth2",
+                "types": [
+                    "oauth2",
+                    "oauth2"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-oauth2",
+                "file": "/data/node_modules/node-red-contrib-oauth2/src/oauth2.js"
+            }
+        }
     }
 }

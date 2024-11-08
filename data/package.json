@@ -12,6 +12,7 @@
         "@ether/node-red-contrib-sqlbuilder": "file:lib/nodes/node-red-contrib-sqlbuilder",
         "node-red": "^4.0.5",
         "node-red-contrib-moment": "^5.0.0",
+        "node-red-contrib-oauth2": "~6.2.1",
         "node-red-contrib-postgresql": "^0.14.2",
         "node-red-contrib-string": "^1.0.0",
         "node-red-debugger": "^1.1.1"
