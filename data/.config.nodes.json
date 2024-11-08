@@ -514,5 +514,24 @@
                 "file": "/data/node_modules/node-red-contrib-postgresql/postgresql.js"
             }
         }
+    },
+    "@ether/node-red-contrib-sqlbuilder": {
+        "name": "@ether/node-red-contrib-sqlbuilder",
+        "version": "1.0.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "sql": {
+                "name": "sql",
+                "types": [
+                    "sqlbuilder"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@ether/node-red-contrib-sqlbuilder",
+                "file": "/data/node_modules/@ether/node-red-contrib-sqlbuilder/sqlbuilder.js"
+            }
+        }
     }
 }
