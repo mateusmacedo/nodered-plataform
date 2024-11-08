@@ -572,5 +572,62 @@
                 "file": "/data/node_modules/node-red-contrib-oauth2/src/oauth2.js"
             }
         }
+    },
+    "node-red-contrib-loop": {
+        "name": "node-red-contrib-loop",
+        "version": "1.0.1",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "loop": {
+                "name": "loop",
+                "types": [
+                    "loop"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-loop",
+                "file": "/data/node_modules/node-red-contrib-loop/loop.js"
+            }
+        }
+    },
+    "node-red-contrib-config": {
+        "name": "node-red-contrib-config",
+        "version": "1.2.1",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "config": {
+                "name": "config",
+                "types": [
+                    "config"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-config",
+                "file": "/data/node_modules/node-red-contrib-config/config.js"
+            }
+        }
+    },
+    "node-red-contrib-noop": {
+        "name": "node-red-contrib-noop",
+        "version": "1.1.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "no-op": {
+                "name": "no-op",
+                "types": [
+                    "no-op"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-noop",
+                "file": "/data/node_modules/node-red-contrib-noop/noop/noop.js"
+            }
+        }
     }
 }
