@@ -1607,5 +1607,24 @@
                 "file": "/data/node_modules/node-red-contrib-loop-processing/while-loop.js"
             }
         }
+    },
+    "node-red-contrib-logger": {
+        "name": "node-red-contrib-logger",
+        "version": "0.1.0",
+        "local": true,
+        "user": false,
+        "nodes": {
+            "loggerNode": {
+                "name": "loggerNode",
+                "types": [
+                    "Logger"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-logger",
+                "file": "/data/node_modules/node-red-contrib-logger/loggerNode.js"
+            }
+        }
     }
 }

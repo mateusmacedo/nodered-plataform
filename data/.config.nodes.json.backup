@@ -1566,5 +1566,46 @@
                 "file": "/data/node_modules/node-red-contrib-full-msg-json-schema-validation/schema.js"
             }
         }
+    },
+    "node-red-contrib-loop-processing": {
+        "name": "node-red-contrib-loop-processing",
+        "version": "0.5.1",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "index-loop": {
+                "name": "index-loop",
+                "types": [
+                    "counter-loop"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-loop-processing",
+                "file": "/data/node_modules/node-red-contrib-loop-processing/counter-loop.js"
+            },
+            "array-loop": {
+                "name": "array-loop",
+                "types": [
+                    "array-loop"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-loop-processing",
+                "file": "/data/node_modules/node-red-contrib-loop-processing/array-loop.js"
+            },
+            "while-loop": {
+                "name": "while-loop",
+                "types": [
+                    "while-loop"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-loop-processing",
+                "file": "/data/node_modules/node-red-contrib-loop-processing/while-loop.js"
+            }
+        }
     }
 }
