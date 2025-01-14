@@ -1,3 +1,5 @@
 **/.sshkeys/**/*
 data/.npm
 **/node_modules/**/*
+container/volumes/*
+data/uibuilder/*

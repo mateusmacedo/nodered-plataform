@@ -1,8 +1,5 @@
 {
     "projects": {
-        "node-red-core": {
-            "credentialSecret": false
-        }
     },
-    "activeProject": "node-red-core"
+    "activeProject": ""
 }

@@ -44,7 +44,7 @@ docker network create --driver bridge shared
 Execute o comando abaixo para subir o docker-compose.
 
 ```bash
-docker compose up -d -f container/compose.yaml
+docker compose -f container/compose.yaml up -d
 ```
 
 #### Environment Variables
