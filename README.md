@@ -7,8 +7,8 @@
 Permissões para os arquivos de inicialização para o docker substitua $USER pelo seu usuário.
 
 ```bash
-sudo chwon -R $USER:$USER src
-sudo chmod -R ug+rwx src
+sudo chwon -R $USER:$USER data
+sudo chmod -R ug+rwx data
 ```
 
 ### Docker Compose
@@ -16,7 +16,7 @@ sudo chmod -R ug+rwx src
 Execute o comando abaixo para subir o docker-compose.
 
 ```bash
-docker compose up -d
+docker compose up -d -f container/compose.yml
 ```
 
 ### node-red
