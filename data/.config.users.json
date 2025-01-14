@@ -20,8 +20,8 @@
         "menu-deploymenu-item-full": false,
         "git": {
             "user": {
-                "name": "mateusmacedo",
-                "email": "macedodosanjosmateus@gmail.com"
+                "name": "",
+                "email": ""
             },
             "workflow": {
                 "mode": "manual"
