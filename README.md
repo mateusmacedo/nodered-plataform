@@ -47,6 +47,14 @@ Execute o comando abaixo para subir o docker-compose.
 docker compose -f container/compose.yaml up -d
 ```
 
+ps.: Para derrubar o docker-compose execute o comando abaixo.
+
+```bash
+docker compose -f container/compose.yaml down
+```
+
+### Renovar Permissões
+
 #### Environment Variables
 
 Para alterar as variáveis de ambiente do node-red acesse o arquivo .env. dentro da pasta container.
