@@ -7,8 +7,8 @@
 Permissões para os arquivos de inicialização para o docker substitua $USER pelo seu usuário.
 
 ```bash
-sudo chwon -R $USER:$USER data
-sudo chmod -R ug+rwx data
+sudo chown -R $USER:$USER data
+sudo chown -R ug+rwx data
 ```
 
 ### Container Folder
