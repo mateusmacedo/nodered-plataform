@@ -31,6 +31,14 @@ sudo chmod -R ug+rwx data
  ┣ 📜.env
  ┗ 📜compose.yaml
 
+#### Docker Network
+
+Para criar a rede do docker execute o comando abaixo.
+
+```bash
+docker network create --driver bridge shared
+```
+
 #### Docker Compose
 
 Execute o comando abaixo para subir o docker-compose.
